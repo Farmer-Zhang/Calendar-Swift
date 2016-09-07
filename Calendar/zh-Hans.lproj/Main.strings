@@ -1,0 +1,9 @@
+
+/* Class = "UISearchBar"; placeholder = "输入日期，如2016-01或2016-1-1"; ObjectID = "VrP-b6-KLP"; */
+"VrP-b6-KLP.placeholder" = "输入日期，如2016-01或2016-1-1";
+
+/* Class = "UIBarButtonItem"; title = "今天"; ObjectID = "dY5-3K-PMg"; */
+"dY5-3K-PMg.title" = "今天";
+
+/* Class = "UIBarButtonItem"; title = "搜索日期"; ObjectID = "fbe-KG-v3C"; */
+"fbe-KG-v3C.title" = "搜索日期";

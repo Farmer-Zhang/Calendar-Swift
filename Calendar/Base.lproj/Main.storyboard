@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LJe-eb-9SM">
+    <dependencies>
+        <deployment version="2352" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 7 format" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--Indicate View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="YYIndicateViewController" customModule="Calendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kS9-d3-Pni">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fpy-Tf-5NY">
+                                    <size key="itemSize" width="100" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9mT-iy-SE6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="sug-eR-tVD"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" placeholder="输入日期，如2016-01或2016-1-1" translatesAutoresizingMaskIntoConstraints="NO" id="VrP-b6-KLP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mRy-mj-0F5"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Y3I-nC-ATH"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VrP-b6-KLP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="19n-gd-fEx"/>
+                            <constraint firstItem="kS9-d3-Pni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="AqC-YD-9tI"/>
+                            <constraint firstItem="kS9-d3-Pni" firstAttribute="top" secondItem="VrP-b6-KLP" secondAttribute="bottom" id="C7K-Pj-08E"/>
+                            <constraint firstAttribute="trailing" secondItem="VrP-b6-KLP" secondAttribute="trailing" id="Jkx-bl-lVk"/>
+                            <constraint firstItem="VrP-b6-KLP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="TaA-eX-0TF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kS9-d3-Pni" secondAttribute="bottom" id="aj2-94-0jQ"/>
+                            <constraint firstAttribute="trailing" secondItem="kS9-d3-Pni" secondAttribute="trailing" id="sUE-9y-f9F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tFq-fi-vKf">
+                        <rightBarButtonItems>
+                            <barButtonItem title="今天" id="dY5-3K-PMg">
+                                <connections>
+                                    <action selector="todayButtonClicked:" destination="BYZ-38-t0r" id="qYl-sL-A5t"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="搜索日期" style="plain" id="fbe-KG-v3C">
+                                <connections>
+                                    <action selector="searchTheDate:" destination="BYZ-38-t0r" id="78d-Qk-YUb"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dataCollectionView" destination="kS9-d3-Pni" id="lc0-tN-D23"/>
+                        <outlet property="searchHeight" destination="mRy-mj-0F5" id="NmX-B6-tRV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="26.53673163418291"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cSz-Bp-9c4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LJe-eb-9SM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lLI-Bn-QMI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="P2I-N2-e1z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLY-t9-1XT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.5999999999999996" y="-644.52773613193403"/>
+        </scene>
+    </scenes>
+</document>
