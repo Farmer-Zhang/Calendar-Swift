@@ -13,7 +13,7 @@ class YYDataMaster: NSObject {
     //用于计算当前月第一天的位置
     func getIndexOfCurrentDay(year: Int, month: Int) -> Int {
         //算出本月1号是周几
-        let daa = getOnday(year, month:month , day: 1)
+        let daa = getOnday(year: year, month:month , day: 1)
         
         switch daa.3 {
         case "Sun","周日":
@@ -38,7 +38,7 @@ class YYDataMaster: NSObject {
     //获取当天的 年 月 日 周几
     func getOnday(year: Int, month: Int, day: Int) -> (Int, String, String ,String) {
         
-        let calendar = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
         
         
         let componet = NSDateComponents.init()
@@ -47,11 +47,12 @@ class YYDataMaster: NSObject {
         componet.day = day - 1;
         
         
-        let newdate = calendar?.dateByAddingComponents(componet, toDate: NSDate.init(timeIntervalSince1970:0), options: NSCalendarOptions.init(rawValue: 0))
-        let dateformater = NSDateFormatter.init()
+        let newdate = calendar?.date(byAdding: componet as DateComponents, to: NSDate.init(timeIntervalSince1970:0) as Date, options: NSCalendar.Options.init(rawValue: 0))
+        let dateformater = DateFormatter.init()
         dateformater.dateFormat = "YYYY MM dd EEE"
-        let dayString = dateformater.stringFromDate(newdate!)
-        let arr = dayString.componentsSeparatedByString(" ")
+        let dayString = dateformater.string(from: newdate!)
+        let arr = dayString.components(separatedBy: " ")
+//        let arr = dayString.componentsSeparatedByString(" ")
         
         return (Int(arr[0])!, arr[1],arr[2],arr[3])
     }
@@ -153,29 +154,30 @@ class YYDataMaster: NSObject {
         let chineseDays = NSArray.init(array: ["初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十", "十一", "十二", "十三", "十四", "十五", "十六", "十七","十八", "十九", "二十", "廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十"])
         
         let dateString = NSString.init(format: "%d-%d-%d", year,month,day)
-        let dateFormater = NSDateFormatter.init()
+        let dateFormater = DateFormatter.init()
         dateFormater.dateFormat = "yyyy-MM-dd"
-        let date = dateFormater.dateFromString(dateString as String)
+        let date = dateFormater.date(from: dateString as String)
         
-        let localeCalendar = NSCalendar.init(identifier: NSCalendarIdentifierChinese)
+        let localeCalendar = NSCalendar.init(identifier: NSCalendar.Identifier.chinese)
         
-        let localeComp = localeCalendar?.components(NSCalendarUnit.Day, fromDate: date!)
+        let localeComp = localeCalendar?.components(NSCalendar.Unit.day, from: date!)
         
-        var d_str = chineseDays.objectAtIndex((localeComp?.day)! - 1)
+        var d_str = chineseDays.object(at: (localeComp?.day)! - 1)
         
         if d_str as! String == "初一" {
-            let montComp = localeCalendar?.components(NSCalendarUnit.Month, fromDate: date!)
-            d_str = months.objectAtIndex((montComp?.month)! - 1)
+            let montComp = localeCalendar?.components(NSCalendar.Unit.month, from: date!)
+            d_str = months.object(at: (montComp?.month)! - 1)
         }
         return d_str as! String
     }
 
     func getCurrentDate() -> (year: Int, month: Int, day: Int) {
         let date = NSDate.init()
-        let formate = NSDateFormatter.init()
+        let formate = DateFormatter.init()
         formate.dateFormat = "yyyy-MM-dd"
-        let string = formate.stringFromDate(date)
-        let stringArr = string.componentsSeparatedByString("-")
+        let string = formate.string(from: date as Date)
+        let stringArr = string.components(separatedBy: "-")
+//        let stringArr = string.componentsSeparatedByString("-")
         
         return (Int(stringArr[0])!,Int(stringArr[1])!,Int(stringArr[2])!)
     }

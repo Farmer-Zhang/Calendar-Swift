@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias callBackSuccesAndError = (response: AnyObject?, error: NSError?) -> Void
+typealias callBackSuccesAndError = (_ response: AnyObject?, _ error: NSError?) -> Void
 
 class YYBaseRequest: NSObject {
 
@@ -20,16 +20,17 @@ class YYBaseRequest: NSObject {
     let vocationsDatas: [String] = Array()
     
     
-    func initBackDataFunc(senderFunc: callBackSuccesAndError) -> Void {
+    func initBackDataFunc(senderFunc: @escaping callBackSuccesAndError) -> Void {
         myfunc = senderFunc
     }
     
+    
     func requestWithData(url: String, parameters: AnyObject?) -> Void {
         let manager = AFHTTPSessionManager.init()
-        manager.POST(url, parameters: parameters, progress: nil, success: { (resultTask:NSURLSessionDataTask, response:AnyObject?) in
-            self.myfunc!(response: response ,error: nil)
-        }) { (resultTask:NSURLSessionDataTask?, error:NSError?) in
-            self.myfunc!(response: nil ,error: error)
+        manager.post(url, parameters: parameters, progress: nil, success: { (resultTask:URLSessionDataTask, response:Any?) in
+            self.myfunc!(response as AnyObject? ,nil)
+        }) { (resultTask:URLSessionDataTask?, error:Error?) in
+            self.myfunc!(nil ,error as NSError?)
         }
     }
 }

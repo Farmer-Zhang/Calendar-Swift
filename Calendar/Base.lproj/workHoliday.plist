@@ -50,15 +50,16 @@
 	<dict>
 		<key>workday</key>
 		<array>
-			<string>0203</string>
+			<string>0122</string>
 			<string>0204</string>
-			<string>1008</string>
+			<string>0401</string>
+			<string>0527</string>
+			<string>0930</string>
 		</array>
 		<key>vocation</key>
 		<array>
 			<string>0101</string>
 			<string>0102</string>
-			<string>0103</string>
 			<string>0127</string>
 			<string>0128</string>
 			<string>0129</string>
@@ -66,12 +67,12 @@
 			<string>0131</string>
 			<string>0201</string>
 			<string>0202</string>
+			<string>0402</string>
 			<string>0403</string>
 			<string>0404</string>
-			<string>0405</string>
+			<string>0429</string>
+			<string>0430</string>
 			<string>0501</string>
-			<string>0502</string>
-			<string>0503</string>
 			<string>0528</string>
 			<string>0529</string>
 			<string>0530</string>
@@ -82,6 +83,41 @@
 			<string>1005</string>
 			<string>1006</string>
 			<string>1007</string>
+			<string>1008</string>
+		</array>
+	</dict>
+	<key>2018</key>
+	<dict>
+		<key>workday</key>
+		<array>
+			<string>0930</string>
+		</array>
+		<key>vocation</key>
+		<array>
+			<string>0101</string>
+			<string>0215</string>
+			<string>0216</string>
+			<string>0217</string>
+			<string>0218</string>
+			<string>0219</string>
+			<string>0220</string>
+			<string>0221</string>
+			<string>0405</string>
+			<string>0406</string>
+			<string>0407</string>
+			<string>0501</string>
+			<string>0502</string>
+			<string>0503</string>
+			<string>0616</string>
+			<string>0617</string>
+			<string>0618</string>
+			<string>0922</string>
+			<string>0923</string>
+			<string>0924</string>
+			<string>1001</string>
+			<string>1002</string>
+			<string>1003</string>
+			<string>1004</string>
 			<string>1005</string>
 			<string>1006</string>
 			<string>1007</string>

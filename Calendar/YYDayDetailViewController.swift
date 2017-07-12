@@ -23,7 +23,7 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     var _bannerView: GDTMobBannerView?
     var _interstitialObj: GDTMobInterstitial?
     var applicationDidEnterForegroundObserver: NSObjectProtocol?
-    var notificationCenter: NSNotificationCenter?
+    var notificationCenter: NotificationCenter?
     var printVC : UIViewController?
     
     let noticeString = ["公历：","农历：","星期：","干支："," 生肖：","冲煞：","五行：", "彭祖百忌：","吉神宜趋：", "凶神宜忌：","宜：","忌："]
@@ -33,8 +33,8 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        _bannerView = GDTMobBannerView.init(frame: CGRect.init(x: 20, y: SCREEN_HEIGHT - (UIDevice.currentDevice().model == "iPad" ? 95 : 55), width: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.width, height: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.height),appkey:TAPPKEY,placementId:"6080017288353724")
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        _bannerView = GDTMobBannerView.init(frame: CGRect.init(x: 20, y: SCREEN_HEIGHT - (UIDevice.current.model == "iPad" ? 95 : 55), width: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.width, height: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.height),appkey:TAPPKEY,placementId:"6080017288353724")
         
         _interstitialObj = GDTMobInterstitial.init(appkey: TAPPKEY, placementId: "7060516208552705")
         _interstitialObj?.isGpsOn = false; //【可选】设置GPS开关
@@ -44,22 +44,24 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     }
     
     
-    override func viewWillAppear( animated: Bool) {
-        notificationCenter = NSNotificationCenter.defaultCenter()
-        let operationQueue = NSOperationQueue.mainQueue()
-        applicationDidEnterForegroundObserver = notificationCenter?.addObserverForName(UIApplicationWillEnterForegroundNotification,object: nil, queue: operationQueue, usingBlock: { (notification: NSNotification!) in
+    override func viewWillAppear( _ animated: Bool) {
+        notificationCenter = NotificationCenter.default
+        let operationQueue = OperationQueue.main
+        
+        applicationDidEnterForegroundObserver = notificationCenter?.addObserver(forName: NSNotification.Name.UIApplicationWillEnterForeground, object: nil, queue: operationQueue, using: { (notification: Notification?) in
             print("程序进入到qian台了")
             if self.isADClosed == true {
                 //预加载广告
                 self._interstitialObj?.loadAd()
-                self._interstitialObj?.presentFromRootViewController(self.printVC)
+                self._interstitialObj?.present(fromRootViewController: self.printVC)
             }
+
         })
         super.viewWillAppear(animated)
     }
     
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         //如果不需要的话，记得把相应的通知注册给取消，避免内存浪费或奔溃
         notificationCenter?.removeObserver(applicationDidEnterForegroundObserver!)
         applicationDidEnterForegroundObserver = nil
@@ -70,7 +72,7 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailTableView.registerNib(UINib.init(nibName: "YYDetailTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+        detailTableView.register(UINib.init(nibName: "YYDetailTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         loadDatasAndRefreshView()
         
         _bannerView?.currentViewController = self; //设置当前的ViewController
@@ -81,35 +83,37 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         self.view.addSubview(_bannerView!)    //添加到当前的view中
         _bannerView?.loadAdAndShow(); //加载广告并展示
         
-        printVC = UIApplication.sharedApplication().keyWindow?.rootViewController
+        printVC = UIApplication.shared.keyWindow?.rootViewController
 
-        NSTimer.scheduledTimerWithTimeInterval( 3, target: self, selector: #selector(pushInterstitialObjAD), userInfo: nil, repeats: false)
+        Timer.scheduledTimer( timeInterval: 3, target: self, selector: #selector(pushInterstitialObjAD), userInfo: nil, repeats: false)
     }
     
     func loadDatasAndRefreshView() -> Void {
         let dic = ["key" : "0875fc61c8c696ee3b213ef819e24a3a", "date": self.title!]
-        request.requestWithData("http://v.juhe.cn/laohuangli/d", parameters: dic)
+        request.requestWithData(url: "http://v.juhe.cn/laohuangli/d", parameters: dic as AnyObject?)
         request.initBackDataFunc { (response, error) in
             
+            print(response?["reason"] as! String)
+            
             if  let dic = response?["result"] as? NSDictionary {
-                self.detailTexts.addObject(dic["yangli"]!)
+                self.detailTexts.add(dic["yangli"]!)
                 let yinli = dic["yinli"] as! String
-                let nongli = yinli.componentsSeparatedByString("年")[1]
-                let ganzhi = yinli.componentsSeparatedByString("(")[0]
-                let shengxiao = yinli.componentsSeparatedByString("(")[1].componentsSeparatedByString(")")[0]
+                let nongli = yinli.components(separatedBy:"年")[1]
+                let ganzhi = yinli.components(separatedBy:"(")[0]
+                let shengxiao = yinli.components(separatedBy:"(")[1].components(separatedBy:")")[0]
                 
-                self.detailTexts.addObject(nongli)
-                self.detailTexts.addObject(YYDataMaster.init().getChineseWeekDay(self.weekDay!))
-                self.detailTexts.addObject(ganzhi)
-                self.detailTexts.addObject(shengxiao)
+                self.detailTexts.add(nongli)
+                self.detailTexts.add(YYDataMaster.init().getChineseWeekDay(englishWeekDay: self.weekDay!))
+                self.detailTexts.add(ganzhi)
+                self.detailTexts.add(shengxiao)
                 
-                self.detailTexts.addObject(dic["chongsha"]!)
-                self.detailTexts.addObject(dic["wuxing"]!)
-                self.detailTexts.addObject(dic["baiji"]!)
-                self.detailTexts.addObject(dic["jishen"]!)
-                self.detailTexts.addObject(dic["xiongshen"]!)
-                self.detailTexts.addObject(dic["yi"]!)
-                self.detailTexts.addObject(dic["ji"]!)
+                self.detailTexts.add(dic["chongsha"]!)
+                self.detailTexts.add(dic["wuxing"]!)
+                self.detailTexts.add(dic["baiji"]!)
+                self.detailTexts.add(dic["jishen"]!)
+                self.detailTexts.add(dic["xiongshen"]!)
+                self.detailTexts.add(dic["yi"]!)
+                self.detailTexts.add(dic["ji"]!)
                 
                 self.detailTableView.reloadData()
             }
@@ -120,31 +124,31 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         _interstitialObj?.delegate = self
         //预加载广告
         //        _interstitialObj?.loadAd()
-        _interstitialObj?.presentFromRootViewController(printVC)
+        _interstitialObj?.present(fromRootViewController: printVC)
     }
     
-    func interstitialAdDidDismissFullScreenModal(interstitial: GDTMobInterstitial!) {
+    func interstitialAdDidDismissFullScreenModal(_ interstitial: GDTMobInterstitial!) {
         isADClosed = false
     }
     
-    func interstitialDidDismissScreen(interstitial: GDTMobInterstitial!) {
+    func interstitialDidDismissScreen(_ interstitial: GDTMobInterstitial!) {
         isADClosed = true
     }
     
-    func interstitialDidPresentScreen(interstitial: GDTMobInterstitial!) {
+    func interstitialDidPresentScreen(_ interstitial: GDTMobInterstitial!) {
         isADClosed = false
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return noticeString.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        didcell = tableView.dequeueReusableCellWithIdentifier(identifier) as? YYDetailTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        didcell = tableView.dequeueReusableCell(withIdentifier: identifier) as? YYDetailTableViewCell
         didcell?.noticeLabel.text = noticeString[indexPath.row]
         if  detailTexts.count > 0 {
             didcell?.detailLabel.text = detailTexts[indexPath.row] as? String
@@ -153,13 +157,13 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         return didcell!
     }
     
-    func tableView(tableView: UITableView, heightForRowAt indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if didcell != nil {
             let getString = didcell?.detailLabel.text as NSString?
-            let rect = getString?.boundingRectWithSize(CGSize.init(width: SCREEN_WIDTH - 102, height: 1000), options:NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(14.0)], context: nil)
+            let rect = getString?.boundingRect(with: CGSize.init(width: SCREEN_WIDTH - 102, height: 1000), options:NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14.0)], context: nil)
             
             didcell = nil
-            if rect?.size.height < 30 {
+            if ((rect?.size.height)! < CGFloat.init(30)) {
                 return 30
             }
             return (rect?.size.height)!
@@ -169,15 +173,19 @@ class YYDayDetailViewController: UIViewController, UITableViewDelegate,UITableVi
         return 30
     }
     
-    override func shouldAutorotate() -> Bool {
+    
+    override var shouldAutorotate: Bool{
         return true
     }
+//    override func shouldAutorotate() -> Bool {
+//        return true
+//    }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        let height = UIScreen.mainScreen().bounds.size.height
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        let height = UIScreen.main.bounds.size.height
         
-        if fromInterfaceOrientation == UIInterfaceOrientation.Portrait || fromInterfaceOrientation == UIInterfaceOrientation.PortraitUpsideDown {
-            _bannerView?.frame = CGRect.init(x: 20, y: height - (UIDevice.currentDevice().model == "iPad" ? 95 : 55), width: SCREEN_WIDTH - 40, height: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.height)
+        if fromInterfaceOrientation == UIInterfaceOrientation.portrait || fromInterfaceOrientation == UIInterfaceOrientation.portraitUpsideDown {
+            _bannerView?.frame = CGRect.init(x: 20, y: height - (UIDevice.current.model == "iPad" ? 95 : 55), width: SCREEN_WIDTH - 40, height: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.height)
         } else {
             _bannerView?.frame = CGRect.init(x: 20, y: height - GDTMOB_AD_SUGGEST_SIZE_POTRAIT.height, width: SCREEN_HEIGHT - 40, height: GDTMOB_AD_SUGGEST_SIZE_POTRAIT.height)
             

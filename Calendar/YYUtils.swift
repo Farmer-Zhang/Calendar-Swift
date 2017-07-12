@@ -10,17 +10,17 @@ import UIKit
 
 class YYUtils: NSObject {
    class func showHud(text: String,view: UIView)  {
-        MBProgressHUD.hideHUDForView(view, animated: false)
+        MBProgressHUD.hide(for: view, animated: false)
         if text.isEmpty == true {
             
         }
         
         let hud = MBProgressHUD.init(view: view)
-        hud?.mode = MBProgressHUDMode.Text
+        hud?.mode = MBProgressHUDMode.text
         hud?.detailsLabelText = text
         hud?.margin = 10
         hud?.removeFromSuperViewOnHide = true
-        hud?.userInteractionEnabled = false
+        hud?.isUserInteractionEnabled = false
         hud?.center = view.center
         view.addSubview(hud!)
         hud?.show(true)
@@ -28,6 +28,6 @@ class YYUtils: NSObject {
     }
     
     class func hideHud(view: UIView) {
-       MBProgressHUD.hideHUDForView(view, animated: false)
+       MBProgressHUD.hide(for: view, animated: false)
     }
 }

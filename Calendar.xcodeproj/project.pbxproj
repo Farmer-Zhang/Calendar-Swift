@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D73A2A37ECC8167AA6E5BE6D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A03E37AD40B90D35C39449 /* libPods.a */; };
 		D90D07781D221E3C00DC806B /* YYUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D07771D221E3C00DC806B /* YYUtils.swift */; };
 		D90D07821D224CF300DC806B /* YYDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90D07801D224CF300DC806B /* YYDetailTableViewCell.swift */; };
-		D92804C31D2BABD500639871 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D41D4C1D2BA7B7002B7E57 /* Info.plist */; };
 		D942AC361D1A68CD00246980 /* YYDataMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D942AC351D1A68CD00246980 /* YYDataMaster.swift */; };
 		D94E57651D21202E002A0A5D /* YYDayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94E57631D21202E002A0A5D /* YYDayDetailViewController.swift */; };
 		D94E57661D21202E002A0A5D /* YYDayDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D94E57641D21202E002A0A5D /* YYDayDetailViewController.xib */; };
@@ -18,6 +16,7 @@
 		D987C2A01D1BA1CE002AC093 /* YYIndicateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987C29F1D1BA1CE002AC093 /* YYIndicateViewController.swift */; };
 		D987C2A71D1BA8E5002AC093 /* YYDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987C2A51D1BA8E5002AC093 /* YYDayCollectionViewCell.swift */; };
 		D987C2AB1D1BAC65002AC093 /* YYSectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987C2A91D1BAC65002AC093 /* YYSectionHeaderReusableView.swift */; };
+		D9891B4F1D9030E60052E822 /* workHoliday.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D41D501D2BA833002B7E57 /* workHoliday.plist */; };
 		D990A5891D191F36006476DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D990A5881D191F36006476DB /* AppDelegate.swift */; };
 		D9A1812D1D1CE67A001B155F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A1812A1D1CE5D7001B155F /* Main.storyboard */; };
 		D9A1812E1D1CE67F001B155F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D990A58F1D191F36006476DB /* Assets.xcassets */; };
@@ -33,23 +32,22 @@
 		D9A73AFE1D264BB30041E971 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A73AFD1D264BB30041E971 /* CoreTelephony.framework */; };
 		D9A73B001D264BBF0041E971 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A73AFF1D264BBF0041E971 /* libz.tbd */; };
 		D9A73B021D264BC60041E971 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A73B011D264BC60041E971 /* Security.framework */; };
+		D9E5FA381EFCFA3800AD56B5 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E5FA371EFCFA3800AD56B5 /* libmtasdk.a */; };
+		D9E5FA3C1EFCFA9600AD56B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E5FA3B1EFCFA9600AD56B5 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26638D3B163EF38A638AD530 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4F684B2383281B93E0DB7C2E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		78A03E37AD40B90D35C39449 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90D07771D221E3C00DC806B /* YYUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YYUtils.swift; path = ../YYUtils.swift; sourceTree = "<group>"; };
 		D90D07801D224CF300DC806B /* YYDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYDetailTableViewCell.swift; sourceTree = "<group>"; };
+		D93BB7951EFB6597006432C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
+		D93BB7961EFB659F006432C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		D942AC351D1A68CD00246980 /* YYDataMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YYDataMaster.swift; path = ../YYDataMaster.swift; sourceTree = "<group>"; };
 		D94E57631D21202E002A0A5D /* YYDayDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YYDayDetailViewController.swift; path = ../../YYDayDetailViewController.swift; sourceTree = "<group>"; };
 		D94E57641D21202E002A0A5D /* YYDayDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = YYDayDetailViewController.xib; path = ../../YYDayDetailViewController.xib; sourceTree = "<group>"; };
-		D970EF0A1D2C929800C32D66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		D970EF121D2C957500C32D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/YYDetailTableViewCell.xib; sourceTree = "<group>"; };
 		D970EF161D2C95AA00C32D66 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/YYDetailTableViewCell.strings"; sourceTree = "<group>"; };
 		D970EF171D2C95AA00C32D66 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		D970EF181D2C95AA00C32D66 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		D970EF191D2C95AA00C32D66 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
 		D970EF1A1D2C95AA00C32D66 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/workHoliday.plist"; sourceTree = "<group>"; };
 		D987C29F1D1BA1CE002AC093 /* YYIndicateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YYIndicateViewController.swift; path = ../../YYIndicateViewController.swift; sourceTree = "<group>"; };
 		D987C2A51D1BA8E5002AC093 /* YYDayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YYDayCollectionViewCell.swift; path = ../../../YYDayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -78,6 +76,10 @@
 		D9A73B011D264BC60041E971 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D9D41D4B1D2BA7B7002B7E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		D9D41D4F1D2BA833002B7E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/workHoliday.plist; sourceTree = "<group>"; };
+		D9E5FA371EFCFA3800AD56B5 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
+		D9E5FA391EFCFA6500AD56B5 /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
+		D9E5FA3A1EFCFA6500AD56B5 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
+		D9E5FA3B1EFCFA9600AD56B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +87,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A73B021D264BC60041E971 /* Security.framework in Frameworks */,
+				D9E5FA3C1EFCFA9600AD56B5 /* libsqlite3.tbd in Frameworks */,
 				D9A73B001D264BBF0041E971 /* libz.tbd in Frameworks */,
+				D9A73B021D264BC60041E971 /* Security.framework in Frameworks */,
+				D9E5FA381EFCFA3800AD56B5 /* libmtasdk.a in Frameworks */,
 				D9A73AFE1D264BB30041E971 /* CoreTelephony.framework in Frameworks */,
 				D9A73AFC1D264BA70041E971 /* SystemConfiguration.framework in Frameworks */,
 				D9A73AFA1D264B9A0041E971 /* QuartzCore.framework in Frameworks */,
 				D9A73AF81D264B930041E971 /* CoreLocation.framework in Frameworks */,
 				D9A73AF61D264B8A0041E971 /* AdSupport.framework in Frameworks */,
-				D73A2A37ECC8167AA6E5BE6D /* libPods.a in Frameworks */,
 				D9A73AF41D264ABB0041E971 /* libGDTMobSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +106,7 @@
 		D3F75BE4A95C54FDA310BEB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9E5FA3B1EFCFA9600AD56B5 /* libsqlite3.tbd */,
 				D9A73B011D264BC60041E971 /* Security.framework */,
 				D9A73AFF1D264BBF0041E971 /* libz.tbd */,
 				D9A73AFD1D264BB30041E971 /* CoreTelephony.framework */,
@@ -111,7 +115,6 @@
 				D9A73AF71D264B930041E971 /* CoreLocation.framework */,
 				D9A73AF51D264B8A0041E971 /* AdSupport.framework */,
 				D9A73AEC1D264AAC0041E971 /* TencentAD */,
-				78A03E37AD40B90D35C39449 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,7 +192,6 @@
 				D990A5871D191F36006476DB /* Calendar */,
 				D990A5861D191F36006476DB /* Products */,
 				D3F75BE4A95C54FDA310BEB6 /* Frameworks */,
-				EA526A3868D44C5D37EF2E01 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +206,7 @@
 		D990A5871D191F36006476DB /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				D9E5FA361EFCFA2400AD56B5 /* frameWorks */,
 				D90D077A1D224C4900DC806B /* UI */,
 				D90D07791D224C3300DC806B /* Utils */,
 				D990A5881D191F36006476DB /* AppDelegate.swift */,
@@ -237,13 +240,14 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
-		EA526A3868D44C5D37EF2E01 /* Pods */ = {
+		D9E5FA361EFCFA2400AD56B5 /* frameWorks */ = {
 			isa = PBXGroup;
 			children = (
-				26638D3B163EF38A638AD530 /* Pods.debug.xcconfig */,
-				4F684B2383281B93E0DB7C2E /* Pods.release.xcconfig */,
+				D9E5FA391EFCFA6500AD56B5 /* MTA.h */,
+				D9E5FA3A1EFCFA6500AD56B5 /* MTAConfig.h */,
+				D9E5FA371EFCFA3800AD56B5 /* libmtasdk.a */,
 			);
-			name = Pods;
+			path = frameWorks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,12 +257,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D990A5971D191F36006476DB /* Build configuration list for PBXNativeTarget "Calendar" */;
 			buildPhases = (
-				B0E4B36FC0394E82C70916CD /* Check Pods Manifest.lock */,
 				D990A5811D191F36006476DB /* Sources */,
 				D990A5821D191F36006476DB /* Frameworks */,
 				D9A1812C1D1CE672001B155F /* Resources */,
-				4DE939C9159C6AD0D01125B8 /* Embed Pods Frameworks */,
-				1CE47084A6B31A8BD8E04B99 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,8 +320,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D92804C31D2BABD500639871 /* Info.plist in Resources */,
 				D9A181311D1CE6B8001B155F /* YYDayCollectionViewCell.xib in Resources */,
+				D9891B4F1D9030E60052E822 /* workHoliday.plist in Resources */,
 				D970EF111D2C957500C32D66 /* YYDetailTableViewCell.xib in Resources */,
 				D9A181301D1CE6B3001B155F /* YYSectionHeaderReusableView.xib in Resources */,
 				D94E57661D21202E002A0A5D /* YYDayDetailViewController.xib in Resources */,
@@ -331,54 +332,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1CE47084A6B31A8BD8E04B99 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4DE939C9159C6AD0D01125B8 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0E4B36FC0394E82C70916CD /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D990A5811D191F36006476DB /* Sources */ = {
@@ -431,8 +384,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D9D41D4B1D2BA7B7002B7E57 /* Base */,
-				D970EF0A1D2C929800C32D66 /* en */,
-				D970EF191D2C95AA00C32D66 /* zh-Hans */,
+				D93BB7951EFB6597006432C7 /* zh-Hans */,
+				D93BB7961EFB659F006432C7 /* en */,
 			);
 			name = Info.plist;
 			sourceTree = "<group>";
@@ -488,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "a7f2431e-2640-4551-b62c-485dbcfa8a68";
@@ -531,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "a7f2431e-2640-4551-b62c-485dbcfa8a68";
 				SDKROOT = iphoneos;
@@ -542,25 +495,41 @@
 		};
 		D990A5981D191F36006476DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26638D3B163EF38A638AD530 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: heng zhao (3U8K6PU5MU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: heng zhao (3U8K6PU5MU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3U8K6PU5MU;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = /Users/svendson/Desktop/Calendar/Calendar/Base.lproj/Info.plist;
+				INFOPLIST_FILE = "/Users/svendson/百度云同步盘/我的个人文件（WB）/项目文件/放假万年历/Calendar/Calendar/Base.lproj/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/Calendar/frameWorks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.calendar.basic.adpb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a7f2431e-2640-4551-b62c-485dbcfa8a68";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/svendson/Desktop/Calendar/Calendar/Calendar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/svendson/百度云同步盘/我的个人文件（WB）/项目文件/放假万年历/Calendar/Calendar/Calendar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -568,24 +537,40 @@
 		};
 		D990A5991D191F36006476DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F684B2383281B93E0DB7C2E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: heng zhao (3U8K6PU5MU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3U8K6PU5MU;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = /Users/svendson/Desktop/Calendar/Calendar/Base.lproj/Info.plist;
+				INFOPLIST_FILE = "/Users/svendson/百度云同步盘/我的个人文件（WB）/项目文件/放假万年历/Calendar/Calendar/Base.lproj/info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/Calendar/frameWorks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-all_load",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.calendar.basic.adpb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a7f2431e-2640-4551-b62c-485dbcfa8a68";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/svendson/Desktop/Calendar/Calendar/Calendar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/svendson/百度云同步盘/我的个人文件（WB）/项目文件/放假万年历/Calendar/Calendar/Calendar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

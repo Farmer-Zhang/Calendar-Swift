@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LJe-eb-9SM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LJe-eb-9SM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment version="2352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
-        <capability name="documents saved in the Xcode 7 format" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Indicate View Controller-->
@@ -20,6 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kS9-d3-Pni">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fpy-Tf-5NY">
                                     <size key="itemSize" width="100" height="40"/>
@@ -34,6 +38,7 @@
                                 </connections>
                             </collectionView>
                             <searchBar contentMode="redraw" placeholder="输入日期，如2016-01或2016-1-1" translatesAutoresizingMaskIntoConstraints="NO" id="VrP-b6-KLP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="mRy-mj-0F5"/>
                                 </constraints>
@@ -58,12 +63,12 @@
                         <rightBarButtonItems>
                             <barButtonItem title="今天" id="dY5-3K-PMg">
                                 <connections>
-                                    <action selector="todayButtonClicked:" destination="BYZ-38-t0r" id="qYl-sL-A5t"/>
+                                    <action selector="todayButtonClickedWithSender:" destination="BYZ-38-t0r" id="BfD-fr-Rit"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="搜索日期" style="plain" id="fbe-KG-v3C">
                                 <connections>
-                                    <action selector="searchTheDate:" destination="BYZ-38-t0r" id="78d-Qk-YUb"/>
+                                    <action selector="searchTheDate:" destination="BYZ-38-t0r" id="oH0-0w-rbd"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

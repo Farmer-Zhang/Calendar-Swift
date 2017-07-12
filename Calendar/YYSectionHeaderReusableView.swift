@@ -19,7 +19,7 @@ class YYSectionHeaderReusableView: UICollectionReusableView {
     
     func updateTheHeader(year: Int, month: Int) -> Void {
         
-       let string = YYDataMaster.init().getCurrentMonthAndYear(month, year: year)
+       let string = YYDataMaster.init().getCurrentMonthAndYear(month: month, year: year)
         headerTitle.text = string
     }
     
